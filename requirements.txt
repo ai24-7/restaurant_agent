@@ -1,0 +1,8 @@
+langchain==0.3.19
+langchain_experimental==0.3.4
+pandas==1.5.3
+pinecone==6.0.1
+python-dotenv==1.0.1
+Requests==2.32.3
+streamlit==1.42.1
+Wikipedia_API==0.8.1
