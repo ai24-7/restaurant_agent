@@ -1,0 +1,26 @@
+name: Python Syntax Check
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  syntax-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.12.8"  # Specify your desired Python version
+
+      - name: Check for syntax errors
+        run: |
+          for file in $(find . -name "*.py"); do
+            python -m py_compile $file || exit 1
+          done
