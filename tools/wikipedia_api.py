@@ -9,4 +9,4 @@ def wikipedia_api_tool(query: str) -> str:
     page = wiki.page(query)
     if not page.exists():
         return f"No Wikipedia page found for {query}."
-    return f"Wikipedia info about {query}: {page.summary[:500]}"
+    return f"Wikipedia info about {query}: {page.summary[:600]}... \n Reference: {page.fullurl}"

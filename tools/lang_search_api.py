@@ -21,4 +21,9 @@ def langsearch_api_tool(query: str) -> str:
     for result in data['data']['webPages']['value'][:3]:  # Top 3 results
         summary.append(result['summary'])
         url_list.append(result['url'])
-    return f"LangSearch results for {query}: {summary}"
+    return f"""
+    LangSearch results for {query} are: \n
+    {summary[0]}. Reference: {url_list[0]} \n
+    {summary[1]}. Reference: {url_list[1]} \n
+    {summary[2]}. Reference: {url_list[2]} \n
+    """
