@@ -116,8 +116,8 @@ from langchain.tools import Tool
 from tools.vector_search import vector_search_tool
 from tools.wikipedia_api import wikipedia_api_tool
 from tools.lang_search_api import langsearch_api_tool
-from tools.pandas_tool import query_pandas_agent_tool
-
+#from tools.pandas_tool import query_pandas_agent_tool
+from tools.sql_tool import query_sql_agent_tool
 from utils.config import OPENAI_API_KEY
 
 class MultiToolAgent:
@@ -145,7 +145,7 @@ class MultiToolAgent:
             1. **VectorSearch** → Local restaurant data in san francisco
             2. **WikipediaAPI** → Food history & nutrition.
             3. **LangSearchAPI** → External food data not available in other sources such as food trends.
-            4. **PandasDataFrameTool** → When working with statistics like number of resturants or avg price comparison.
+            4. **SQLTool** → When working with statistics like number of resturants or avg price comparison.
 
             I will always try my best to find an answer. However, if I can’t find enough information, I will let you know instead of guessing.
             You are using the ReAct framework, which means you must **always** follow this exact step-by-step structure in your output:
@@ -206,9 +206,14 @@ class MultiToolAgent:
                 func=langsearch_api_tool,
                 description="External data if local info is insufficient. such as food trends."
             ),
+            # Tool(
+            #     name="PandasDataFrameTool",
+            #     func=query_pandas_agent_tool,
+            #     description="Numeric analysis of local dataframe."
+            # ),
             Tool(
-                name="PandasDataFrameTool",
-                func=query_pandas_agent_tool,
+                name="SQLTool",
+                func=query_sql_agent_tool,
                 description="Numeric analysis of local dataframe."
             ),
         ]
