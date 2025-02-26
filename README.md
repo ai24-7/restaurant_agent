@@ -66,8 +66,11 @@ Follow these instructions to set up and run the project in your preferred develo
    Install the required packages using `requirements.txt`:
    ```bash
    pip install -r requirements.txt
+4. **Data Preprocessing, Setup Pinecone, and Upsert to Vector Database
+   ```bash
+   python preprocessing.py
    ```
-4. **Run Program:**
+5. **Run Program:**
   ```bash
   streamlit run main.py
   ```
