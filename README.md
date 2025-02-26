@@ -19,23 +19,6 @@ This project is an agentic chat bot designed to answer queries by integrating da
 - **Menu Innovation & Flavor Trend:**  
   Analyze changes over time in ingredients and menu offerings, supported by both internal data and external news sources.
 
-## Sample Queries
-
-### 1. Ingredient-Based Discovery
-- **Example 1:** “Which restaurants in Los Angeles offer dishes with Impossible Meat?”
-- **Example 2:** “Find restaurants near me that serve gluten-free pizza.”
-
-### 2. Trending Insights & Explanations
-- **Example:** “Give me a summary of the latest trends around desserts in San Francisco.”
-
-### 3. Historical or Cultural Context
-- **Example:** “What is the history of sushi, and which restaurants in my area are known for it?”  
-
-### 4. Comparative Analysis
-- **Example:** “Compare the average menu price of vegan restaurants in San Francisco vs. Mexican restaurants.”  
-
-### 5. Menu Innovation & Flavor Trend
-- **Example:** “How has the use of saffron in desserts changed over the last year, according to restaurant menus or news articles?”  
 
 ## Integration Details
 
@@ -61,12 +44,51 @@ This project is an agentic chat bot designed to answer queries by integrating da
 
 ## Getting Started
 
-1. **Setup Environment:**  
+Follow these instructions to set up and run the project in your preferred development environment.
+
+### Option 1: Local Development Environment
+
+1. **Setup Environment:**
    - Ensure you have access to the internal dataset.
    - Configure API keys and endpoints for external data sources (e.g., Wikipedia).
 
-2. **Install Dependencies:**  
-   Use your `requirements.txt` or Conda environment setup to install necessary packages.
+2. **Create and Activate Conda Environment:**
+   - Create a new Conda environment with Python 3.12:
+     ```bash
+     conda create --name chatbotenv python=3.12
+     ```
+   - Activate the environment:
+     ```bash
+     conda activate chatbotenv
+     ```
 
-3. **Run the Chat Bot:**  
-   Start the chat bot application using streamlit run main.py
+3. **Install Dependencies:**
+   Install the required packages using `requirements.txt`:
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. **Run Program:**
+  ```bash
+  streamlit run main.py
+  ```
+### Option 2: Use Docker
+1. **Build Docker Image:**
+  ```bash
+  docker build -t chatbotapi .
+  ```
+2. **Run Container:**
+  ```bash
+  docker run -d -p 8000:8000 --name backend chatbotapi
+  ```
+3. **Run UI:**
+  In a new terminal run :
+  ```bash
+  streamlit run app.py --server.port 8501
+  ```
+
+### Option 3: Production
+1. **Procedure**
+  - dockerfile for backend, frontend and data
+  - use copilot init to initialize the infrastructure
+  - use copilot addons to add data
+  - use copilot run to run the microservice
