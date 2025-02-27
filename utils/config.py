@@ -14,3 +14,10 @@ EMBED_DIM = 384
 # INDEX_NAME = "menuai-large"  # Name for the Pinecone index
 PINECONE_INDEX_NAME = "menuai-large"
 SEARCH_URL = "https://api.langsearch.com/v1/web-search"
+
+os.environ["LANGSMITH_TRACING"] = "true"
+LANGSMITH_PROJECT="pr-respectful-control-33"
+os.environ["LANGSMITH_PROJECT"] = LANGSMITH_PROJECT
+LANGSMITH_ENDPOINT="https://api.smith.langchain.com"
+os.environ["LANGSMITH_ENDPOINT"] = LANGSMITH_ENDPOINT
+LANGSMITH_API_KEY = os.getenv("LANGSMITH_API_KEY")
